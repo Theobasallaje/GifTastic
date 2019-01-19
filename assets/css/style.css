@@ -1,3 +1,10 @@
 button, div, form, input {
     margin: 10px;
+    text-align: center;
 }
+
+#gif-view{
+    display: flex;
+    justify-content: center;
+}
+

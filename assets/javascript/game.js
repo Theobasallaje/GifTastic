@@ -1,5 +1,5 @@
 // Initial array of gif
-var gifs = ["The Matrix", "cats", "birds", "The Lion King"];
+var gifs = ["The Matrix", "Cats", "Birds", "The Lion King"];
 
 // displayGif function re-renders the HTML to display the appropriate content
 function displayGif() {
@@ -14,9 +14,9 @@ function displayGif() {
     }).then(function (response) {
         console.log(response);
         
-        // Creates a div to hold the movie
-        var gifDiv = $("<div class='gif'>");
-        // Retrieves the Rating Data
+        // Creates a div to hold the gif
+        var gifDiv = $("<div id='gifDiv'>");
+        // Retrieves the image data
         for (var i=0; i<response.data.length; i++){
         var responseGif = response.data[i].images.fixed_height_small_still.url;
         var responseGifAnimate = response.data[i].images.fixed_height_small.url;
@@ -29,9 +29,15 @@ function displayGif() {
                             data-state="still">`);
         // Appends the image
         gifDiv.append(gifElement);
+        // Retrieves the Rating Data
+        var rating = response.data[i].rating;
+        // Creates an element to have the rating displayed
+        var ratingElement = $("<p>Rating: " + rating + "</p>");
+        // Displays the rating
+        gifDiv.append(ratingElement);
         }
         $("#gif-view").empty();
-        $("#gif-view").prepend(gifDiv);
+        $("#gif-view").append(gifDiv);
     });
 }
 
@@ -77,7 +83,7 @@ $(document).on("click", ".gif", displayGif);
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
 
-$(".response").on("click", function(){
+$(document).on("click", ".response", function(){
     console.log(this);
     var state = $(this).attr("data-state");
 
