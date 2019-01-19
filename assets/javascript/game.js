@@ -5,7 +5,7 @@ var gifs = ["The Matrix", "cats", "birds", "The Lion King"];
 function displayGif() {
 
     var gif = $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?limit=10&q="+ gif +"&api_key=TEBjSdTv3FNMqy7oIiSsHjkTI7xIRDby"; 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?limit=10&q="+ gif +"&api_key=TEBjSdTv3FNMqy7oIiSsHjkTI7xIRDby"; 
 
     // Creates AJAX call for the specific gif button being clicked
     $.ajax({
