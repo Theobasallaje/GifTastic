@@ -18,6 +18,7 @@ function displayGif() {
         var gifDiv = $("<div id='gifDiv'>");
         // Retrieves the image data
         for (var i=0; i<response.data.length; i++){
+        var gifWithRating = $("<div class='gifWithRating'>");
         var responseGif = response.data[i].images.fixed_height_small_still.url;
         var responseGifAnimate = response.data[i].images.fixed_height_small.url;
         console.log(responseGif);
@@ -28,13 +29,14 @@ function displayGif() {
                             data-animate="${responseGifAnimate}"
                             data-state="still">`);
         // Appends the image
-        gifDiv.append(gifElement);
+        gifWithRating.append(gifElement);
         // Retrieves the Rating Data
         var rating = response.data[i].rating;
         // Creates an element to have the rating displayed
         var ratingElement = $("<p>Rating: " + rating + "</p>");
         // Displays the rating
-        gifDiv.append(ratingElement);
+        gifWithRating.append(ratingElement);
+        gifDiv.append(gifWithRating);
         }
         $("#gif-view").empty();
         $("#gif-view").append(gifDiv);

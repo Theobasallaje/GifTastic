@@ -8,3 +8,9 @@ button, div, form, input {
     justify-content: center;
 }
 
+.gifWithRating{
+    text-align: center;
+    float: left;
+    padding: 10px;
+}
+
