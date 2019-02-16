@@ -1,2 +1,2 @@
 # GifTastic
-# https://github.com/Theobasallaje/GifTastic
+# https://theobasallaje.github.io/GifTastic/
